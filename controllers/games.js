@@ -19,4 +19,16 @@ gameRouter.get('/new', (req, res) => {
     res.render('games/new.ejs')
 })
 
+
+// SHOW---GET---/:id 
+gameRouter.get('/:id', (req, res) => {
+    Game.findById(req.params.id)
+        .exec()
+        .then((game) => {
+            res.render('games/show.ejs', {
+                game: game
+            })
+        })
+})
+
 module.exports = gameRouter
