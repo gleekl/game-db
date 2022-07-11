@@ -7,8 +7,11 @@ const GameSchema = new Schema(
         developer: String,
         publisher: String,
         year: Number, 
-        genre: String,
-        img: [ String ],
+        platform: [ { type: String } ],
+        genre: [ { type: String } ],
+        mode: [ { type: String } ],
+        img: String,
+        tags: [ { type: String } ]
     }, 
     {
         timestamps: true
