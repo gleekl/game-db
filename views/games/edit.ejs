@@ -1,25 +1,25 @@
 <%- include ('../partials/head.ejs') %>
-<h2>Add a New Game</h2>
-<form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
+<h1>Update <%= game.name %></h1>
+<form action="/<%= game.id %>?_method=put" method="post">
     <p>
         <label for="name">Name</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" value="<%= game.name %>">
     </p>
     <p>
         <label for="developer">Developer</label>
-        <input type="text" name="developer" id="developer">
+        <input type="text" name="developer" id="developer" value="<%= game.developer %>">
     </p>
     <p>
         <label for="publisher">Publisher</label>
-        <input type="text" name="publisher" id="publisher">
+        <input type="text" name="publisher" id="publisher" value="<%= game.publisher %>">
     </p>
     <p>
         <label for="year">Year</label>
-        <input type="number" min="1900" max="2099" step="1" value="2022" name="year" id="year">
+        <input type="number" min="1900" max="2099" step="1" value="2022" name="year" id="year" value="<%= game.year %>">
     </p>
     <p>
         <label for="genre">Genre</label>
-        <input type="text" name="genre" id="genre">
+        <input type="text" name="genre" id="genre" value="<%= game.genre %>">
     </p>
     <p>
         <label for="mode">Mode</label>
@@ -28,10 +28,6 @@
             <option value="multiplayer">Multiplayer</option>
         </select>
     </p>
-    <p>
-        <label for="tags">Tags</label>
-        <input type="text" name="tags" id="tags">
-    </p>
-    <input type="submit" name="" id="" value="Create Game">
+    <input type="submit" name="" id="" value="Create">
 </form>
 <%- include ('../partials/footer.ejs') %>

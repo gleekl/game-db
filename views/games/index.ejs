@@ -1,0 +1,11 @@
+<%- include ('../partials/head.ejs') %>
+
+<ul>
+    <% for (let game of games) { %>
+        <li>
+            <%= game.name %>
+        </li>
+    <% } %>
+</ul>
+
+<%- include ('../partials/footer.ejs') %>
