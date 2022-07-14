@@ -5,25 +5,36 @@ const gameRouter = express.Router()
 const upload = require('../middlewares/upload')
 const Game = require('../models/games')
 
+const isLoggedIn = (req, res, next) => {
+    if (!req.session.currentUser) {
+        return res.redirect('/login')
+    }
+    next()
+}
+
+gameRouter.use(isLoggedIn)
+
 // INDEX---GET---/
 gameRouter.get('/', (req, res) => {
     Game.find()
         .exec()
         .then((games) => {
             res.render('games/index.ejs', {
+                currentUser: req.session.currentUser,
+                baseUrl: req.baseUrl,
                 games: games,
                 tabTitle: 'Games Index'
             })
-            console.log(games);
-            // res.send(games);
+            console.log('Homepage loaded.');
         })
 })
 
 // NEW---GET---/new 
 gameRouter.get('/new', (req, res) => {
     res.render('games/new.ejs', {
+        currentUser: req.session.currentUser,
+        baseUrl: req.baseUrl,
         tabTitle: 'Add a New Game',
-        baseUrl: req.baseUrl
     })
 })
 
@@ -33,6 +44,8 @@ gameRouter.get('/:id', (req, res) => {
         .exec()
         .then((game) => {
             res.render('games/show.ejs', {
+                currentUser: req.session.currentUser,
+                baseUrl: req.baseUrl,
                 game: game,
                 tabTitle: game.name
             })
@@ -42,27 +55,44 @@ gameRouter.get('/:id', (req, res) => {
 // EDIT         GET     /:id/edit
 gameRouter.get('/:id/edit', (req, res) => {
     Game.findById(req.params.id)
-        .exec
+        .exec()
         .then((game) => {
             res.render('games/edit.ejs', {
+                currentUser: req.session.currentUser,
+                baseUrl: req.baseUrl,
                 game: game,
-                tabTitle: `Edit ` + game.name
+                tabTitle: `Edit game: ` + game.name
             })
         })
 })
 
 // CREATE       POST    /
-gameRouter.post('/', upload.single('image'), (req, res) => {
-    req.body.img = req.file.path
+gameRouter.post('/', upload.single('img'), (req, res) => {
+    if (req.file !== undefined) {
+        req.body.img = req.file.path
+    }
+
+    const platformArray = req.body.platform.split(/[\s,]+/)
+    req.body.platform = platformArray
+
+    const tagsArray = req.body.tags.split(/[\s,]+/)
+    req.body.tags = tagsArray
+
     Game.create(req.body)
         .then((game) => {
             console.log('New game added:', game);
-            res.redirect(req.baseUrl + game.id)
+            res.redirect('/' + game.id)
         })
 })
 
 // UPDATE       PUT     /:id
-gameRouter.put('/:id', (req, res) => {
+gameRouter.put('/:id', upload.single('img'), (req, res) => {
+    if (req.body.mode === 'on')  {
+        req.body.mode = 'Single-player'
+    } else {
+        req.body.mode = "Single-player, Multiplayer"
+    }
+
     Game.findByIdAndUpdate(req.params.id, req.body)
         .exec()
         .then(() => {
@@ -73,10 +103,10 @@ gameRouter.put('/:id', (req, res) => {
 // DESTROY      DELETE  /:id
 gameRouter.delete('/:id', (req, res) => {
     Game.findByIdAndDelete(req.params.id)
-        exec()
-        then((game) => {
+        .exec()
+        .then((game) => {
             console.log('Deleted game:', game);
-            res.redirect(req.baseUrl)
+            res.redirect('/')
         })
 })
 

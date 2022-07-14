@@ -1,10 +1,27 @@
 <%- include ('../partials/head.ejs') %>
 
-<ul>
+<ul class="games-list">
     <% for (let game of games) { %>
-        <li>
-            <%= game.name %>
-        </li>
+        <div class="card" style="width: 18rem">
+            <li class="card game">
+                <a href="<%= baseUrl %>/<%= game.id %>">
+                    <figure><img src="<%= game.img %>" class="card-img-top"/></figure>
+                    <div class="card-body">
+                      <h3 class="card-title"><%= game.name %></h3>
+                      <p class="card-text"><%= game.type %></p>
+                    </div>
+                  </a>
+    
+                <div class="action-bar">
+                    <form action="<%= baseUrl %>/<%= game.id %>?_method=DELETE" method="post">
+                    <input class="btn btn-danger" type="submit" value="Delete" />
+                    </form>
+                </div>
+                <div class="action-bar">
+                    <a class="btn btn-primary" href="<%= baseUrl %>/<%= game.id %>/edit">Edit</a>
+                </div>
+            </li>
+        </div>
     <% } %>
 </ul>
 

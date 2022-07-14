@@ -1,37 +1,50 @@
 <%- include ('../partials/head.ejs') %>
 <h2>Add a New Game</h2>
-<form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
-    <p>
+<form action="/" method="post" enctype="multipart/form-data">
+    <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name">
-    </p>
-    <p>
+        <input class="form-control" type="text" name="name" id="name" />
+    </div>
+    <div class="form-group">
         <label for="developer">Developer</label>
-        <input type="text" name="developer" id="developer">
-    </p>
-    <p>
+        <input class="form-control" type="text" name="developer" id="developer" />
+    </div>
+    <div class="form-group">
         <label for="publisher">Publisher</label>
-        <input type="text" name="publisher" id="publisher">
-    </p>
-    <p>
+        <input class="form-control" type="text" name="publisher" id="publisher" />
+    </div>
+    <div class="form-group">
         <label for="year">Year</label>
-        <input type="number" min="1900" max="2099" step="1" value="2022" name="year" id="year">
-    </p>
-    <p>
+        <input class="form-control" type="number" min="1900" max="2099" step="1" value="2022" name="year" id="year" />
+    </div>
+    <div class="form-group">
+        <label for="platform">Platform</label>
+        <input class="form-control" type="text" name="platform" id="platform" />
+    </div>
+    <div class="form-group">
         <label for="genre">Genre</label>
-        <input type="text" name="genre" id="genre">
-    </p>
-    <p>
-        <label for="mode">Mode</label>
-        <select name="genre" id="genre">
-            <option value="single-player">Single-player</option>
-            <option value="multiplayer">Multiplayer</option>
-        </select>
-    </p>
-    <p>
+        <input class="form-control" type="text" name="genre" id="genre" />
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="mode" value="Single-player" id="defaultCheck1" />
+        <label class="form-check-label" for="defaultCheck1">
+          Single-player
+        </label>
+    </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="mode" value="Multiplayer" id="defaultCheck2" />
+        <label class="form-check-label" for="defaultCheck2">
+          Multiplayer
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="img">Image</label>
+        <input class="form-control" id="img" name="img" type="file" />
+    </div>
+    <div class="form-group">
         <label for="tags">Tags</label>
-        <input type="text" name="tags" id="tags">
-    </p>
-    <input type="submit" name="" id="" value="Create Game">
+        <input class="form-control" type="text" name="tags" id="tags" />
+    </div>
+    <input class="btn btn-primary" type="submit" name="" id="" value="Create Game">
 </form>
 <%- include ('../partials/footer.ejs') %>
