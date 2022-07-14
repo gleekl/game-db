@@ -1,10 +1,12 @@
 <%- include ('../partials/head.ejs') %>
 
-<div>
-    <h1><%= game.name %></h1>
-    <div>
-        <img src="<%= game.img %>" alt="">
+<div class="game-info">
     
+    <div class="description">
+        <img class="game-img" src="<%= game.img %>" alt="">
+        
+        <h1><%= game.name %></h1>
+
         <h3>Type</h3>
         <p><%= game.type %></p>
         

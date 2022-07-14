@@ -10,7 +10,8 @@ const mongoDBSession = require('connect-mongodb-session')
 // Controllers
 const usersController = require('./controllers/users')
 const sessionsController = require('./controllers/sessions')
-const gameController = require('./controllers/games')
+const videoGameController = require('./controllers/videogames')
+// const tabletopController = require('./controllers/tabletop')
 
 const app = express()
 const PORT = process.env.PORT
@@ -38,7 +39,8 @@ app.use(methodOverride('_method'))
 
 app.use('/', sessionsController)
 app.use('/users', usersController)
-app.use('/', gameController)
+app.use('/', videoGameController)
+// app.use('/', tabletopController)
 
 mongoose.connect(dbURL, () => {
     console.log('Connected to MongoDB');

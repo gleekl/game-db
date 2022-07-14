@@ -75,6 +75,9 @@ gameRouter.post('/', upload.single('img'), (req, res) => {
     const platformArray = req.body.platform.split(/[\s,]+/)
     req.body.platform = platformArray
 
+    const genreArray = req.body.genre.split(/[\s,]+/)
+    req.body.genre = genreArray
+
     const tagsArray = req.body.tags.split(/[\s,]+/)
     req.body.tags = tagsArray
 
@@ -93,7 +96,10 @@ gameRouter.put('/:id', upload.single('img'), (req, res) => {
         req.body.mode = "Single-player, Multiplayer"
     }
 
-    Game.findByIdAndUpdate(req.params.id, req.body)
+    const tagsArray = req.body.tags.split(/[\s,]+/)
+    req.body.tags = tagsArray
+
+    Game.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .exec()
         .then(() => {
             res.redirect('/' + req.params.id)

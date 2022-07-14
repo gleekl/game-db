@@ -4,21 +4,19 @@
     <% for (let game of games) { %>
         <div class="card" style="width: 18rem">
             <li class="card game">
-                <a href="<%= baseUrl %>/<%= game.id %>">
-                    <figure><img src="<%= game.img %>" class="card-img-top"/></figure>
+                <a class="game-desc" href="<%= baseUrl %>/<%= game.id %>">
+                    <figure><img class="card-img-top" src="<%= game.img %>"/></figure>
                     <div class="card-body">
-                      <h3 class="card-title"><%= game.name %></h3>
+                      <h4 class="card-title"><%= game.name %></h4>
                       <p class="card-text"><%= game.type %></p>
                     </div>
                   </a>
     
                 <div class="action-bar">
+                    <a class="btn btn-primary edit" href="<%= baseUrl %>/<%= game.id %>/edit">Edit</a>
                     <form action="<%= baseUrl %>/<%= game.id %>?_method=DELETE" method="post">
                     <input class="btn btn-danger" type="submit" value="Delete" />
                     </form>
-                </div>
-                <div class="action-bar">
-                    <a class="btn btn-primary" href="<%= baseUrl %>/<%= game.id %>/edit">Edit</a>
                 </div>
             </li>
         </div>
