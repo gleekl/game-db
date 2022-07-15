@@ -1,6 +1,6 @@
 # Project #2: Full-Stack Application
 
-## Games-DB
+## [Games-DB](https://game-database-app.herokuapp.com/games).
 
 In Games-DB, you can add video games or tabletop games you have played, are playing, or want to play into your own personal playlist.
 
