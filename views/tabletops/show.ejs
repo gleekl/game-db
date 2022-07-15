@@ -1,0 +1,42 @@
+<%- include ('../partials/head.ejs') %>
+
+<div class="game-info">
+    
+    <div class="description">
+        <img class="tabletop-img" src="<%= tabletop.img %>" alt="">
+        
+        <h1><%= tabletop.name %></h1>
+
+        <h3>Type</h3>
+        <p><%= tabletop.type %></p>
+        
+        <h3>Designers</h3>
+        <p><%= tabletop.designers %></p>
+        
+        <h3>Publisher</h3>
+        <p><%= tabletop.publisher %></p>
+        
+        <h3>Year</h3>
+        <p><%= tabletop.year %></p>
+        
+        <iframe src="https://app.vectary.com/p/7YaLKsDk67RhzLKJ2KfvJa" frameborder="0" width="100%" height="480"></iframe>
+
+        <h3>Genre</h3>
+        <ul>
+            <% tabletop.genre.forEach(genre => { %>
+                <li><%= genre %></li>
+            <% }) %>
+        </ul>
+        
+        <h3>Tags</h3>
+        <ul>
+            <% tabletop.tags.forEach(tag => { %>
+                <li><%= tag %></li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+
+
+
+<%- include ('../partials/footer.ejs') %>

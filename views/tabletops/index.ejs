@@ -1,0 +1,26 @@
+<%- include ('../partials/head.ejs') %>
+
+<ul class="games-list">
+    <% for (let tabletop of tabletops) { %>
+        <div class="card" style="width: 18rem">
+            <li class="card game">
+                <a class="game-desc" href="<%= baseUrl %>/<%= tabletop.id %>">
+                    <figure><img class="card-img-top" src="<%= tabletop.img %>"/></figure>
+                    <div class="card-body">
+                      <h4 class="card-title"><%= tabletop.name %></h4>
+                      <p class="card-text"><%= tabletop.type %></p>
+                    </div>
+                  </a>
+    
+                <div class="action-bar">
+                    <a class="btn btn-primary edit" href="<%= baseUrl %>/<%= tabletop.id %>/edit">Edit</a>
+                    <form action="<%= baseUrl %>/<%= tabletop.id %>?_method=DELETE" method="post">
+                    <input class="btn btn-danger" type="submit" value="Delete" />
+                    </form>
+                </div>
+            </li>
+        </div>
+    <% } %>
+</ul>
+
+<%- include ('../partials/footer.ejs') %>

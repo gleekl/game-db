@@ -10,8 +10,8 @@ const mongoDBSession = require('connect-mongodb-session')
 // Controllers
 const usersController = require('./controllers/users')
 const sessionsController = require('./controllers/sessions')
-const videoGameController = require('./controllers/videogames')
-// const tabletopController = require('./controllers/tabletop')
+const gameController = require('./controllers/games')
+const tabletopController = require('./controllers/tabletops')
 
 const app = express()
 const PORT = process.env.PORT
@@ -21,7 +21,6 @@ const sessionStore = new MongoDBStore({
     uri: dbURL,
     collection: 'sessions'
 })
-
 // Middlewares
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -38,9 +37,9 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
 app.use('/', sessionsController)
+app.use('/games', gameController)
 app.use('/users', usersController)
-app.use('/', videoGameController)
-// app.use('/', tabletopController)
+app.use('/tabletop', tabletopController)
 
 mongoose.connect(dbURL, () => {
     console.log('Connected to MongoDB');

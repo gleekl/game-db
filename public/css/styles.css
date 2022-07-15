@@ -23,6 +23,10 @@ main {
     margin: 30px auto;
 }
 
+#burger-content {
+    justify-content: right;
+}
+
 .games-list {
     display: flex;
     justify-content: center;
@@ -83,4 +87,21 @@ a:link {
 .game-img {
     max-width: 225px;
     border-radius: 20px;
+}
+
+.login {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.username {
+    margin: 10px auto;
+}
+
+.password {
+    margin: 10px auto;
+}
+
+.login-btn {
+    margin: 10px auto;
 }

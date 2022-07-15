@@ -84,7 +84,7 @@ gameRouter.post('/', upload.single('img'), (req, res) => {
     Game.create(req.body)
         .then((game) => {
             console.log('New game added:', game);
-            res.redirect('/' + game.id)
+            res.redirect('/games/' + game.id)
         })
 })
 
@@ -96,13 +96,19 @@ gameRouter.put('/:id', upload.single('img'), (req, res) => {
         req.body.mode = "Single-player, Multiplayer"
     }
 
+    const platformArray = req.body.platform.split(/[\s,]+/)
+    req.body.platform = platformArray
+
+    const genreArray = req.body.genre.split(/[\s,]+/)
+    req.body.genre = genreArray
+    
     const tagsArray = req.body.tags.split(/[\s,]+/)
     req.body.tags = tagsArray
 
     Game.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .exec()
         .then(() => {
-            res.redirect('/' + req.params.id)
+            res.redirect('/games/' + req.params.id)
         })
 })
 
@@ -112,7 +118,7 @@ gameRouter.delete('/:id', (req, res) => {
         .exec()
         .then((game) => {
             console.log('Deleted game:', game);
-            res.redirect('/')
+            res.redirect('/games')
         })
 })
 

@@ -30,13 +30,13 @@ sessionsRouter.post('/login', (req, res) => {
             } else {
                 console.log(user, 'logged in.');
                 req.session.currentUser = user
-                res.redirect('/')
+                res.redirect('/games')
             }
         })
 })
 
 // Logout
-sessionsRouter.get('logout', (req, res) => {
+sessionsRouter.get('/logout', (req, res) => {
     res.render('sessions/logout.ejs', {
         tabTitle: 'Log Out',
         baseUrl: req.baseUrl,
@@ -46,7 +46,7 @@ sessionsRouter.get('logout', (req, res) => {
 
 sessionsRouter.delete('/logout', (req, res) => {
     req.session.destroy(() => {
-      res.redirect('/')
+      res.redirect('/games')
     })
 })
   

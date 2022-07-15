@@ -1,6 +1,6 @@
 <%- include('../partials/head.ejs') %>
 
-<div class="form-container">
+<div class="form-container login">
   <h1>Log In</h1>
 
   <div class="flash-messages">
@@ -23,17 +23,17 @@
 
   <form action="<%= baseUrl %>/login" method="post">
 
-    <div class="form-group">
+    <div class="form-group username">
       <label for="username">Username</label>
       <input class="form-control" type="text" name="username" id="username" placeholder="Enter username" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group password">
       <label for="password">Password</label>
       <input class="form-control" type="password" name="password" id="password" placeholder="Enter password" />
     </div>
 
-    <input class="btn btn-primary" type="submit" value="Login" />
+    <input class="btn btn-primary login-btn" type="submit" value="Login" />
 
     <div class="form-group">
       Don't have an account yet?
