@@ -72,13 +72,13 @@ gameRouter.post('/', upload.single('img'), (req, res) => {
         req.body.img = req.file.path
     }
 
-    const platformArray = req.body.platform.split(/[\s,]+/)
+    const platformArray = req.body.platform.split(',')
     req.body.platform = platformArray
 
-    const genreArray = req.body.genre.split(/[\s,]+/)
+    const genreArray = req.body.genre.split(',')
     req.body.genre = genreArray
 
-    const tagsArray = req.body.tags.split(/[\s,]+/)
+    const tagsArray = req.body.tags.split(',')
     req.body.tags = tagsArray
 
     Game.create(req.body)
@@ -96,13 +96,13 @@ gameRouter.put('/:id', upload.single('img'), (req, res) => {
         req.body.mode = "Single-player, Multiplayer"
     }
 
-    const platformArray = req.body.platform.split(/[\s,]+/)
+    const platformArray = req.body.platform.split(',')
     req.body.platform = platformArray
 
-    const genreArray = req.body.genre.split(/[\s,]+/)
+    const genreArray = req.body.genre.split(',')
     req.body.genre = genreArray
     
-    const tagsArray = req.body.tags.split(/[\s,]+/)
+    const tagsArray = req.body.tags.split(',')
     req.body.tags = tagsArray
 
     Game.findByIdAndUpdate(req.params.id, req.body, { new: true })

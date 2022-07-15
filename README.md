@@ -13,56 +13,15 @@ What I used for Games-DB:
 - **MongoDB**
 - **Mongoose.**
 - **EJS**
+- **Bootstrap**
 
-- Adhere to the **MVC** file structure: Models, Views, Controllers.
-- At least one model with all 7 **RESTful routes** and full **CRUD**.
-- Use EJS Partials.
-- A public repository on GitHub.
-- Small, frequent commits.
-- **Be deployed online** and accessible to the public via **Heroku**.
-- **A ``README.md`` file** with explanations of the technologies used, the approach taken, unsolved problems, and notes to yourself so you can come back to your project later in the course and be able to pick up your train of thought, etc.
-- Have a **link to your hosted working app** in the **`README.md`** file in your GitHub repo.
+## Features
 
-### &#x1F535; Stretch Goals (Not Mandatory):
-#### Recommended Features
+1. Burger menu for mobile or reduced desktop window sizes.
+1. Sign up and log in/out function.
+1. JavaScript functions that split inputs into arrays to be split into individual elements for future search functions. E.g. 'Genre' = rpg, 
+1. Embedded an iframe which allows a full 3D view of 3D tabletop game models.
 
-- Include **sign up/log in** functionality with encrypted passwords
-- Use a CSS framework like Bootstrap
-- Include portfolio-quality styling
-- Inside Your `README.md`:
-    * Include **wireframes** that you designed during the planning process 
-- Add additional relationships (models can be related in a one-to-many relationship, for example)
-  - https://www.bezkoder.com/mongoose-one-to-one-relationship-example/
-  - https://www.bezkoder.com/mongoose-one-to-many-relationship/
-
-## Make A New Repo & Setup for Heroku Deployment
-
-To prepare for the Heroku deployment lesson during project week, please make sure you create a new github repo for your project and have a basic express server running. 
-
-To see how to get set up for heroku deployment, take a look at [these notes (up to the "Sign up for MongoDB Atlas" section)](/express/bonus/heroku.md).
-
-:heavy_exclamation_mark: **REMEMBER:** For all projects, you will be creating the new repos on [GitHub](https://github.com/), **not** GitHub Enterprise!
-
-## Technical Demonstration
-
-All projects will be presented to the class.  Your presentation should be:
-
-- **Approximately 5-10 minutes in length** 
-- Shows off all features of the app
-- Explains the technical details
-- Explains the technical challenges
-- Explains which improvements you might make
-- Talk about one new thing you learned during this project (can be something technical, or even something more non-technical like time management, etc.)
-
-You will be sharing your app and your code. Be prepared to answer questions from the instructors and other students.
-
-## How to Submit Your Project
-Your project is due on Friday, July 15. You will present your project and show your code to classmates and instructors.
-
-## Where to go for help during project week
-1. Seek out help online
-2. Seek out help with your classmates
-3. Seek out help with your instructors
 
 ## Improvements to be made
 

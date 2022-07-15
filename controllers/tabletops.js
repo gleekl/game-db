@@ -68,10 +68,10 @@ tabletopRouter.get('/:id/edit', (req, res) => {
 
 // CREATE       POST    /
 tabletopRouter.post('/', upload.single('img'), (req, res) => {
-    const genreArray = req.body.genre.split(/[\s,]+/)
+    const genreArray = req.body.genre.split(',')
     req.body.genre = genreArray
 
-    const tagsArray = req.body.tags.split(/[\s,]+/)
+    const tagsArray = req.body.tags.split(',')
     req.body.tags = tagsArray
 
     Tabletop.create(req.body)
@@ -83,10 +83,10 @@ tabletopRouter.post('/', upload.single('img'), (req, res) => {
 
 // UPDATE       PUT     /:id
 tabletopRouter.put('/:id', upload.single('img'), (req, res) => {
-    const genreArray = req.body.genre.split(/[\s,]+/)
+    const genreArray = req.body.genre.split(',')
     req.body.genre = genreArray
 
-    const tagsArray = req.body.tags.split(/[\s,]+/)
+    const tagsArray = req.body.tags.split(',')
     req.body.tags = tagsArray
 
     Tabletop.findByIdAndUpdate(req.params.id, req.body, { new: true })
