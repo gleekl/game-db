@@ -3,37 +3,44 @@
 <div class="game-info">
     
     <div class="description">
-        <img class="tabletop-img" src="<%= tabletop.img %>" alt="">
-        
-        <h1><%= tabletop.name %></h1>
+        <img class="game-img" src="<%= tabletop.img %>" alt="">
+        <div class="upper-row">
+            <div class="mid-col">
+                <h1><%= tabletop.name %></h1>
 
-        <h3>Type</h3>
-        <p><%= tabletop.type %></p>
-        
-        <h3>Designers</h3>
-        <p><%= tabletop.designers %></p>
-        
-        <h3>Publisher</h3>
-        <p><%= tabletop.publisher %></p>
-        
-        <h3>Year</h3>
-        <p><%= tabletop.year %></p>
-        
-        <iframe src="https://app.vectary.com/p/7YaLKsDk67RhzLKJ2KfvJa" frameborder="0" width="100%" height="480"></iframe>
+                <h3>Year</h3>
+                <p class="game-list"><%= tabletop.year %></p>
 
-        <h3>Genre</h3>
-        <ul>
-            <% tabletop.genre.forEach(genre => { %>
-                <li><%= genre %></li>
-            <% }) %>
-        </ul>
+                <h3>Type</h3>
+                <p class="game-list"><%= tabletop.type %></p>
+            </div>
+        </div>
+        <div class="top-right">
+            <h3>Designers</h3>
+            <p class="game-list"><%= tabletop.designers %></p>
+            
+            <h3>Publisher</h3>
+            <p class="game-list"><%= tabletop.publisher %></p>
+        </div>
         
-        <h3>Tags</h3>
-        <ul>
-            <% tabletop.tags.forEach(tag => { %>
-                <li><%= tag %></li>
-            <% }) %>
-        </ul>
+        <div class="mid-right">
+            <h3>Genre</h3>
+            <ul>
+                <% tabletop.genre.forEach(genre => { %>
+                    <li class="game-list"><%= genre %></li>
+                <% }) %>
+            </ul>
+            
+            <h3>Tags</h3>
+            <ul>
+                <% tabletop.tags.forEach(tag => { %>
+                    <li class="game-list"><%= tag %></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="mid-left-mid">
+            <iframe src="https://app.vectary.com/p/7YaLKsDk67RhzLKJ2KfvJa" frameborder="0" width="100%" height="480"></iframe>
+        </div>
     </div>
 </div>
 

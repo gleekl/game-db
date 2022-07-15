@@ -5,51 +5,61 @@
     <div class="description">
         <img class="game-img" src="<%= game.img %>" alt="">
         <div class="upper-row">
-            <h1><%= game.name %></h1>
+            <div class="mid-col">
+                <h1><%= game.name %></h1>
 
-            <h4>Year</h4>
-            <p><%= game.year %></p>
-    
-            <h4>Type</h4>
-            <p><%= game.type %></p>
-            
+                <h4>Year</h4>
+                <p class="game-list"><%= game.year %></p>
+        
+                <h4>Type</h4>
+                <p class="game-list"><%= game.type %></p>
+            </div>
+        </div>
+        <div class="top-right">
             <h4>Developer</h4>
-            <p><%= game.developer %></p>
+            <p class="game-list"><%= game.developer %></p>
             
             <h4>Publisher</h4>
-            <p><%= game.publisher %></p>
+            <p class="game-list"><%= game.publisher %></p>
         </div>
         
-        <div>
+        <div class="mid-left">
+            <h4>Platform</h4>
+            <ul>
+                <% game.platform.forEach(platform => { %>
+                    <li class="game-list"><%= platform %></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="mid-right">
+            <h4 class="genre">Genre</h4>
+            <ul>
+                <% game.genre.forEach(genre => { %>
+                    <li class="game-list"><%= genre %></li>
+                <% }) %>
+            </ul>
+
+            <h4>Mode</h4>
+            <ul>
+                <% game.mode.forEach(mode => { %>
+                    <li class="game-list"><%= mode %></li>
+                <% }) %>
+        </div>
+        
+        <div class="mid-right">
+            </ul>
             
+            <h4>Tags</h4>
+            <ul>
+                <% game.tags.forEach(tag => { %>
+                    <li class="game-list"><%= tag %></li>
+                <% }) %>
+            </ul>
         </div>
-        <h4>Platform</h4>
-        <ul>
-            <% game.platform.forEach(platform => { %>
-                <li><%= platform %></li>
-            <% }) %>
-        </ul>
-        
-        <h4>Genre</h4>
-        <ul>
-            <% game.genre.forEach(genre => { %>
-                <li><%= genre %></li>
-            <% }) %>
-        </ul>
-        
-        <h4>Mode</h4>
-        <ul>
-            <% game.mode.forEach(mode => { %>
-                <li><%= mode %></li>
-            <% }) %>
-        </ul>
-        
-        <h4>Tags</h4>
-        <ul>
-            <% game.tags.forEach(tag => { %>
-                <li><%= tag %></li>
-            <% }) %>
-        </ul>
+
+        <div class="action-bar game-show-edit btm-mid">
+            <a class="btn btn-primary edit" href="<%= baseUrl %>/<%= game.id %>/edit">Edit</a>
+        </div>
     </div>
 </div>
 
