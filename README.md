@@ -29,5 +29,5 @@ What I used for Games-DB:
 1. Home page - Create a proper home page instead of a video games page redirect.
 1. Incorporating proper dynamic links to 3D model for the Tabletop iframe view.
 1. Playlist - Continue working on allowing users to add the games in the community-sourced database 
-1.
+
 

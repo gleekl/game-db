@@ -90,20 +90,24 @@ gameRouter.post('/', upload.single('img'), (req, res) => {
 
 // UPDATE       PUT     /:id
 gameRouter.put('/:id', upload.single('img'), (req, res) => {
+    if (req.file) {
+        req.body.img = req.file.path
+    }
+
     if (req.body.mode === 'on')  {
         req.body.mode = 'Single-player'
     } else {
         req.body.mode = "Single-player, Multiplayer"
     }
 
-    const platformArray = req.body.platform.split(',')
-    req.body.platform = platformArray
+    // const platformArray = req.body.platform.split(',')
+    // req.body.platform = platformArray
 
-    const genreArray = req.body.genre.split(',')
-    req.body.genre = genreArray
+    // const genreArray = req.body.genre.split(',')
+    // req.body.genre = genreArray
     
-    const tagsArray = req.body.tags.split(',')
-    req.body.tags = tagsArray
+    // const tagsArray = req.body.tags.split(',')
+    // req.body.tags = tagsArray
 
     Game.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .exec()
