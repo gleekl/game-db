@@ -31,7 +31,7 @@ tabletopRouter.get('/', (req, res) => {
 
 // NEW---GET---/new 
 tabletopRouter.get('/new', (req, res) => {
-    res.render('tabletop/new.ejs', {
+    res.render('tabletops/new.ejs', {
         currentUser: req.session.currentUser,
         baseUrl: req.baseUrl,
         tabTitle: 'Add a New Tabletop Game',
